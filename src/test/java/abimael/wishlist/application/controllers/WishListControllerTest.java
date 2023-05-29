@@ -31,28 +31,6 @@ class WishListControllerTest {
 
   @InjectMocks private WishListController wishListController;
 
-  /*@SneakyThrows
-  @Test
-  @DisplayName(
-      "QUANDO o metodo getAllWishLists for chamado ENTAO deve ser chamado ProductService.getAllWishLists retornando"
-          + " todos os wishlists de todos os clientes")
-  void getAllWishLists() {
-
-    List<ClientWishList> clientWishLists =
-        Collections.singletonList(ClientWishList.builder().id("12345").build());
-
-    when(wishListService.getAllWishLists()).thenReturn(clientWishLists);
-
-    ResponseEntity<ApiResponseDto<List<ClientWishList>>> apiResponseDtoResponseEntity =
-        wishListController.getAllWishLists();
-
-    List<ClientWishList> allClientWishLists =
-        Objects.requireNonNull(apiResponseDtoResponseEntity.getBody()).getData();
-
-    verify(wishListService, times(1)).getAllWishLists();
-    assertEquals("12345", allClientWishLists.get(0).getId());
-  }*/
-
   @SneakyThrows
   @Test
   @DisplayName(

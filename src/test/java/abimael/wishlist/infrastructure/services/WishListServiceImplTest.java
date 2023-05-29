@@ -41,22 +41,6 @@ class WishListServiceImplTest {
     when(wishListApplicationConfig.getMaxItemsInWishList()).thenReturn(maxItemInWishList);
   }
 
-  /*@SneakyThrows
-  @Test
-  @DisplayName(
-      "QUANDO o metodo getAllWishLists for chamado ENTAO deve ser chamado wishListRepository.findAll E deve"
-          + " devolver uma lista de ClientWishList")
-  void getAllWishLists() {
-
-    when(wishListRepository.findAll()).thenReturn(Collections.emptyList());
-
-    List<ClientWishList> allClientWishLists = wishListServiceImpl.getAllWishLists();
-
-    verify(wishListRepository, times(1)).findAll();
-
-    assertNotNull(allClientWishLists);
-  }*/
-
   @SneakyThrows
   @Test
   @DisplayName(

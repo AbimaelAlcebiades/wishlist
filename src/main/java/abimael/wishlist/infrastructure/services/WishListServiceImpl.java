@@ -25,16 +25,6 @@ public class WishListServiceImpl implements WishListService {
   private final WishListRepository wishListRepository;
   private final WishListApplicationConfig wishListApplicationConfig;
 
-  /*@Override
-  @Cacheable(value = "wishlists")
-  public List<ClientWishList> getAllWishLists() throws ServiceException {
-    try {
-      return wishListRepository.findAll();
-    } catch (Exception e) {
-      throw new ServiceException("Erro on find all wish lists. " + e.getMessage());
-    }
-  }*/
-
   @Override
   @CacheEvict(value = "wishlists", allEntries = true, key = "'clientId:' + #clientId")
   public ClientWishList addProductToWishList(Long clientId, Long productId)
@@ -88,9 +78,6 @@ public class WishListServiceImpl implements WishListService {
       }
 
       clientWishToSave = buildWishListAddingProductId(clientWishList.get(), productId);
-
-      // productsIds.add(productId);
-      // clientWishToSave.getWishList().setProductsIds(productsIds);
 
       clientWishToSave.setUpdatedAt(ZonedDateTime.now().format(formatter));
     }
@@ -230,32 +217,4 @@ public class WishListServiceImpl implements WishListService {
           "Error on get wish list product by client id " + clientId + ". " + e.getMessage());
     }
   }
-
-  /*public Optional<Product> getProductById(String id) {
-    List<Product> allProducts = getAllWishLists();
-    return allProducts.stream().filter(item -> item.getId().equals(id)).findAny();
-  }
-
-  @CacheEvict(value = "wishlist", allEntries = true)
-  public Product addProduct(CreateProductDto createProductDto) {
-    return wishListRepository.save(buildProductFrom(createProductDto));
-  }
-
-  private Product buildProductFrom(CreateProductDto createProductDto) {
-    return Product.builder()
-        .name(createProductDto.getName())
-        .description(createProductDto.getDescription())
-        .price(createProductDto.getPrice())
-        .build();
-  }
-
-  @CacheEvict(value = "wishlist", allEntries = true)
-  public void removeProduct(String id) {
-    wishListRepository.deleteById(id);
-  }
-
-  @Override
-  public List<Product> getWishListClient(UUID clientId) {
-    return null;
-  }*/
 }

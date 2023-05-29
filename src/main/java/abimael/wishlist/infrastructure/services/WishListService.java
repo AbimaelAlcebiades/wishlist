@@ -8,8 +8,6 @@ import java.util.Optional;
 
 public interface WishListService {
 
-  // List<ClientWishList> getAllWishLists() throws ServiceException;
-
   ClientWishList addProductToWishList(Long clientId, Long productId)
       throws ServiceException, MaxProductsInClientWishListException,
           ProductAlreadyExistsInWishListException;
@@ -24,12 +22,4 @@ public interface WishListService {
 
   Long getWishListProductByClientId(Long clientId, Long productId)
       throws ServiceException, ClientNotFoundException, ProductNotFoundInWishListException;
-
-  /*Optional<Product> getProductById(String id);
-
-  Product addProduct(CreateProductDto createProductDto);
-
-  void removeProduct(String id);
-
-  List<Product> getWishListClient(UUID clientId);*/
 }
