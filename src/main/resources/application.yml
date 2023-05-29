@@ -1,0 +1,26 @@
+app:
+  max-items-in-wish-list: 20
+
+server:
+  port: 8080
+
+logging:
+  level:
+    abimael:
+      wishlist: DEBUG
+
+spring:
+  application:
+    name: Wishlist
+
+  cache:
+    redis:
+      time-to-live: 15s
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/wishlist
+    redis:
+      host: localhost
+      port: 6379
+
